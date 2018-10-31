@@ -1,6 +1,6 @@
-# RP Live. Lesson 3 - Устанавливаем Node сервер
+<img src="logotype.png" align="right" style="width: 15%;"/>
 
-<img src="logotype.png" align="right" />
+# RP Live. Lesson 3 - Устанавливаем Node сервер
 
 Код [третего урока]() из курса RP Live.
 
@@ -13,6 +13,8 @@
     $ npm install
 
     ```
-
-
-
+    
+    
+    
+    
+    

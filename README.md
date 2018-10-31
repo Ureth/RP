@@ -1,6 +1,6 @@
 # RP Live. Lesson 3 - Устанавливаем Node сервер
 
-<img src="logo.png" align="right" />
+<img src="logotype.png" align="right" />
 
 Код [третего урока]() из курса RP Live.
 

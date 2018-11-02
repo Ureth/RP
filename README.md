@@ -2,7 +2,7 @@
 
 # RP Live. Lesson 3 - Устанавливаем Node сервер
 
-Код [третего урока]() из курса RP Live.
+Код [третего урока](https://youtu.be/OC_OfcjPrec) из курса RP Live.
 
 ## Установка
 

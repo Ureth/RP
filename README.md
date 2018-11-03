@@ -2,7 +2,7 @@
 
 # RP Live. Lesson 4 - Создаем REST API на Node JS
 
-Код [четвертого урока]() из курса RP Live.
+Код [четвертого урока](https://youtu.be/QCB7OuAekSE) из курса RP Live.
 
 ## Установка
 

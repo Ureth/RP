@@ -1,6 +1,9 @@
 const express = require("express");
+const mongoose = require("mongoose");
 
 const app = express();
+
+mongoose.connect("mongodb://localhost/muggers-db");
 
 app.use("/api", require("./api"));
 

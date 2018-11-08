@@ -1,8 +1,8 @@
 <img src="logo.png" align="right"/>
 
-# RP Live. Lesson 5 - Создаем REST API на Node JS
+# RP Live. Lesson 5 - MongoDB. Установка и подключение
 
-Код [четвертого урока]() из курса RP Live.
+Код [пятого урока](https://youtu.be/wYeJrDQBEXE) из курса RP Live.
 
 ## Установка
 

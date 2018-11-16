@@ -2,7 +2,7 @@
 
 # RP Live. Lesson 6 - CRUD операции
 
-Код [шестого урока]() из курса RP Live.
+Код [шестого урока](https://youtu.be/PDazE1ic1Qk) из курса RP Live.
 
 ## Установка
 

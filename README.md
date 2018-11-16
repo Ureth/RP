@@ -1,15 +1,15 @@
 <img src="logo.png" align="right"/>
 
-# RP Live. Lesson 5 - MongoDB. Установка и подключение
+# RP Live. Lesson 6 - CRUD операции
 
-Код [пятого урока](https://youtu.be/wYeJrDQBEXE) из курса RP Live.
+Код [шестого урока]() из курса RP Live.
 
 ## Установка
 
 1) Склонируйте этот репозиторий
 
     ```
-    $ git clone -b lesson-5 https://github.com/Ureth/RP.git
+    $ git clone -b lesson-6 https://github.com/Ureth/RP.git
 
     ```
 

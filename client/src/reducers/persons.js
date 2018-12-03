@@ -24,3 +24,13 @@ export function personsIsLoading(state = false, action) {
             return state;
     }
 }
+
+
+export function personsUpdated(state = false, action) {
+    switch (action.type) {
+        case "PERSONS_WAS_UPDATED":
+            return action.wasUpdated;
+        default:
+            return state;
+    }
+}

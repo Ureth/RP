@@ -19,20 +19,48 @@ export function personsFetchDataSuccess(persons) {
     }
 }
 
+export function personsUpdated(bool) {
+    return {
+        type: "PERSONS_WAS_UPDATED",
+        wasUpdated: bool
+    }
+}
+
 export function personsFetchData(url) {
-    return (dispatch) => {
+    return dispatch => {
         dispatch(personsIsLoading(true));
 
         fetch(url)
             .then(response => {
-                if(!response.ok) {
+                if (!response.ok) {
                     throw new Error(response.statusText);
                 }
                 dispatch(personsIsLoading(false));
+                dispatch(personsUpdated(false));
                 return response;
             })
             .then(response => response.json())
             .then(persons => dispatch(personsFetchDataSuccess(persons)))
             .catch(() => dispatch(personsHasErrored(true)));
+    }
+}
+
+export function personsPushData(url, data) {
+    return dispatch => {
+        fetch(url, {
+            method: "POST",
+            headers: {
+                "Accept": "application/json",
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify(data)
+        })
+            .then(response => {
+                dispatch(personsUpdated(true));
+                return response
+            })
+            .then(response => response.json())
+            .then(persons => console.log(persons))
+            .catch(()=>{})
     }
 }

@@ -1,8 +1,10 @@
 import { combineReducers } from "redux";
-import { persons } from "./persons";
+import { persons, personsHasErrored, personsIsLoading } from "./persons";
 
 const rootReducer = combineReducers({
-    persons
+    persons,
+    personsHasErrored,
+    personsIsLoading
 });
 
 export default rootReducer;

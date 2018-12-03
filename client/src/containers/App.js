@@ -6,10 +6,17 @@ import { personsFetchData } from "../actions/persons";
 
 class App extends Component {
   componentDidMount() {
-    this.props.fetchData("/api/muggers");
+    this.props.fetchData("/api/muggers")
   }
 
   render() {
+
+    if(this.props.hasErrored){
+      return <p> Извините, произошла ошибка </p>
+    }
+    if(this.props.isLoading){
+        return <p> Загрузка... </p>
+    }
     return (
       <div>
           <ul>
@@ -30,7 +37,9 @@ class App extends Component {
 
 const mapStateToProps = (state) => {
   return {
-    persons: state.persons
+    persons: state.persons,
+    hasErrored: state.personsHasErrored,
+    isLoading: state.personsIsLoading
   };
 };
 

@@ -2,20 +2,22 @@ import React, {Component} from 'react';
 import './App.css';
 import {connect} from "react-redux";
 import {personsFetchData, personsPushData} from "../actions/persons";
-
+import PopUp from "../components/PopUp";
 
 class App extends Component {
     constructor(props) {
         super(props);
         this.handleChange = this.handleChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
-
+        this.showPopUp = this.showPopUp.bind(this);
+        this.closePopUp = this.closePopUp.bind(this);
         this.state = {
             data: {
                 name: "",
                 age: "",
                 status: ""
-            }
+            },
+            displayStyle: ""
         };
     }
 
@@ -49,6 +51,18 @@ class App extends Component {
         })
     }
 
+    showPopUp(e) {
+        this.setState({
+            displayStyle: "d-block"
+        })
+    }
+
+    closePopUp() {
+        this.setState({
+            displayStyle: ""
+        })
+    }
+
     render() {
 
         if (this.props.hasErrored) {
@@ -58,7 +72,11 @@ class App extends Component {
             return <p> Загрузка... </p>
         }
         return (
-            <div>
+            <div className="wrapper">
+                <PopUp
+                    visibility={this.state.displayStyle}
+                    closePopUp={this.closePopUp}
+                />
                 <ul>
                     {this.props.persons.map((person, index) => {
                         return <li key={index}>
@@ -66,6 +84,7 @@ class App extends Component {
                             <div>Age is: {person.age}</div>
                             <div>Status is: {person.status}</div>
                             <div>Mugger ID is: {person._id}</div>
+                            <button className="edit-btn" onClick={this.showPopUp}>Edit</button>
                         </li>
                     })}
                 </ul>

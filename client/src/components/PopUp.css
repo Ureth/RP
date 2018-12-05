@@ -1,0 +1,35 @@
+.pop-up {
+    width: 250px;
+    height: 250px;
+    border: 1px solid rgb(165, 63, 63);
+    position: fixed;
+    background-color: #fff;
+    top: 50%;
+    left: 50%;
+    margin-left: -125px;
+    margin-top: -125px;
+    display: none;
+}
+
+.close-btn {
+    width: 10px;
+    font-size: 20px;
+    cursor: pointer;
+    height: 10px;
+    position: absolute;
+    right: 10px;
+    top: 10px;
+    color: rgb(216, 8, 8);
+}
+
+.pop-up-label {
+    display: block;
+}
+
+.pop-up-btn {
+    display: block;
+}
+
+.d-block {
+    display: block;
+}

@@ -64,3 +64,23 @@ export function personsPushData(url, data) {
             .catch(()=>{})
     }
 }
+
+export function personsUpdateData(url, data) {
+    return dispatch => {
+        fetch(url, {
+            method: "PUT",
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(data)
+        })
+            .then(response => {
+                dispatch(personsUpdated(true))
+                return response
+            })
+            .then(response => response.json())
+            .then(persons => console.log(persons))
+            .catch(()=> {})
+    }
+}

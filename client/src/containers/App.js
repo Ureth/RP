@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import './App.css';
 import {connect} from "react-redux";
-import {personsFetchData, personsPushData} from "../actions/persons";
+import {personsFetchData, personsPushData, personsUpdateData} from "../actions/persons";
 import PopUp from "../components/PopUp";
 
 class App extends Component {
@@ -11,13 +11,17 @@ class App extends Component {
         this.handleSubmit = this.handleSubmit.bind(this);
         this.showPopUp = this.showPopUp.bind(this);
         this.closePopUp = this.closePopUp.bind(this);
+        this.handlePopUpChange = this.handlePopUpChange.bind(this);
+        this.handleUpdate = this.handleUpdate.bind(this);
         this.state = {
             data: {
                 name: "",
                 age: "",
                 status: ""
             },
-            displayStyle: ""
+            updatedData: {},
+            displayStyle: "",
+            currentId: ""
         };
     }
 
@@ -53,12 +57,30 @@ class App extends Component {
 
     showPopUp(e) {
         this.setState({
-            displayStyle: "d-block"
+            displayStyle: "d-block",
+            currentId: e.target.value
         })
     }
 
     closePopUp() {
         this.setState({
+            displayStyle: ""
+        })
+    }
+
+    handlePopUpChange(e){
+        let {...updatedData} = this.state.updatedData;
+        updatedData[e.target.id] = e.target.value;
+        this.setState({
+            updatedData
+        });
+    }
+
+    handleUpdate(e){
+        e.preventDefault();
+        this.props.updateData(`/api/muggers/${this.state.currentId}`, this.state.updatedData);
+        this.setState({
+            updatedData: {},
             displayStyle: ""
         })
     }
@@ -76,6 +98,9 @@ class App extends Component {
                 <PopUp
                     visibility={this.state.displayStyle}
                     closePopUp={this.closePopUp}
+                    handlePopUpChange={this.handlePopUpChange}
+                    updatedData={this.state.updatedData}
+                    update={this.handleUpdate}
                 />
                 <ul>
                     {this.props.persons.map((person, index) => {
@@ -84,7 +109,7 @@ class App extends Component {
                             <div>Age is: {person.age}</div>
                             <div>Status is: {person.status}</div>
                             <div>Mugger ID is: {person._id}</div>
-                            <button className="edit-btn" onClick={this.showPopUp}>Edit</button>
+                            <button className="edit-btn" value={person._id} onClick={this.showPopUp}>Edit</button>
                         </li>
                     })}
                 </ul>
@@ -126,7 +151,8 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = dispatch => {
     return {
         fetchData: url => dispatch(personsFetchData(url)),
-        pushData: (url, data) => dispatch(personsPushData(url, data))
+        pushData: (url, data) => dispatch(personsPushData(url, data)),
+        updateData: (url, data) => dispatch(personsUpdateData(url, data))
     };
 };
 

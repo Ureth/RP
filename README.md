@@ -1,15 +1,15 @@
 <img src="logo.png" align="right"/>
 
-# RP Live. Lesson 6 - CRUD операции
+# RP Live. Lesson 7 - Подключаем CRA в проект
 
-Код [шестого урока](https://youtu.be/PDazE1ic1Qk) из курса RP Live.
+Код [седьмого урока](https://youtu.be/bCIUkQoKdgI) из курса RP Live.
 
 ## Установка
 
 1) Склонируйте этот репозиторий
 
     ```
-    $ git clone -b lesson-6 https://github.com/Ureth/RP.git
+    $ git clone -b lesson-7 https://github.com/Ureth/RP.git
 
     ```
 
@@ -18,10 +18,13 @@
     ```
     $ cd RP
     $ npm install
+    
+    $ cd client
+    $ npm install
 
     ```
     
-    
+   
     
     
     

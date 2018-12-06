@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import './App.css';
 import {connect} from "react-redux";
-import {personsFetchData, personsPushData, personsUpdateData} from "../actions/persons";
+import {personsFetchData, personsPushData, personsUpdateData, personsDeleteData} from "../actions/persons";
 import PopUp from "../components/PopUp";
 
 class App extends Component {
@@ -13,6 +13,7 @@ class App extends Component {
         this.closePopUp = this.closePopUp.bind(this);
         this.handlePopUpChange = this.handlePopUpChange.bind(this);
         this.handleUpdate = this.handleUpdate.bind(this);
+        this.deletePerson = this.deletePerson.bind(this);
         this.state = {
             data: {
                 name: "",
@@ -85,6 +86,15 @@ class App extends Component {
         })
     }
 
+    async deletePerson(e) {
+        this.setState({
+            currentId: e.target.value
+        }, ()=>{
+            this.props.deleteData(`/api/muggers/${this.state.currentId}`)
+        });
+
+    }
+
     render() {
 
         if (this.props.hasErrored) {
@@ -110,6 +120,7 @@ class App extends Component {
                             <div>Status is: {person.status}</div>
                             <div>Mugger ID is: {person._id}</div>
                             <button className="edit-btn" value={person._id} onClick={this.showPopUp}>Edit</button>
+                            <button className="edit-btn" value={person._id} onClick={this.deletePerson}>Delete</button>
                         </li>
                     })}
                 </ul>
@@ -152,7 +163,8 @@ const mapDispatchToProps = dispatch => {
     return {
         fetchData: url => dispatch(personsFetchData(url)),
         pushData: (url, data) => dispatch(personsPushData(url, data)),
-        updateData: (url, data) => dispatch(personsUpdateData(url, data))
+        updateData: (url, data) => dispatch(personsUpdateData(url, data)),
+        deleteData: url => dispatch(personsDeleteData(url))
     };
 };
 

@@ -76,11 +76,25 @@ export function personsUpdateData(url, data) {
             body: JSON.stringify(data)
         })
             .then(response => {
-                dispatch(personsUpdated(true))
+                dispatch(personsUpdated(true));
                 return response
             })
             .then(response => response.json())
             .then(persons => console.log(persons))
             .catch(()=> {})
+    }
+}
+
+export function personsDeleteData(url) {
+    return dispatch => {
+        fetch(url, {
+            method: "DELETE"
+        })
+            .then(response => {
+                dispatch(personsUpdated(true));
+                return response
+            })
+            .then(response => response.json())
+            .catch(()=> {console.log("Error with deleting")})
     }
 }

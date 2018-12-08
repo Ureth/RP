@@ -5,6 +5,10 @@ class PopUp extends Component {
     constructor(props) {
         super(props);
         this.handlePopUpChange = this.handlePopUpChange.bind(this);
+
+        this.state = {
+            updatedData: this.props.updatedData
+        };
     }
 
     handlePopUpChange(e) {
@@ -16,11 +20,11 @@ class PopUp extends Component {
             <div className={`pop-up ${this.props.visibility}`}>
                 <form onSubmit={this.props.update}>
                     <label className="pop-up-label" htmlFor="name">Изменить Имя</label>
-                    <input id="name" type="text" value={this.props.updatedData.name} onChange={this.handlePopUpChange}/>
+                    <input id="name" type="text" value={this.state.updatedData.name} onChange={this.handlePopUpChange}/>
                     <label className="pop-up-label" htmlFor="age">Изменить возраст</label>
-                    <input id="age" type="text" value={this.props.updatedData.age} onChange={this.handlePopUpChange}/>
+                    <input id="age" type="text" value={this.state.updatedData.age} onChange={this.handlePopUpChange}/>
                     <label className="pop-up-label" htmlFor="status">Изменить статус</label>
-                    <input id="status" type="text" value={this.props.updatedData.status} onChange={this.handlePopUpChange}/>
+                    <input id="status" type="text" value={this.state.updatedData.status} onChange={this.handlePopUpChange}/>
                     <button className="pop-up-btn" type="submit">Обновить</button>
                 </form>
                 <div className="close-btn" onClick={this.props.closePopUp}>X</div>

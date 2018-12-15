@@ -1,15 +1,15 @@
 <img src="logo.png" align="right"/>
 
-# RP Live. Lesson 6 - CRUD операции
+# RP Live. Lesson 8 - Как сделать GET запрос из React-Redux приложения
 
-Код [шестого урока](https://youtu.be/PDazE1ic1Qk) из курса RP Live.
+Код [восьмого урока](https://youtu.be/PDazE1ic1Qk) из курса RP Live.
 
 ## Установка
 
 1) Склонируйте этот репозиторий
 
     ```
-    $ git clone -b lesson-6 https://github.com/Ureth/RP.git
+    $ git clone -b lesson-8 https://github.com/Ureth/RP.git
 
     ```
 
@@ -20,8 +20,11 @@
     $ npm install
 
     ```
-    
-    
+3) Выполните в командной строке
+    ```
+    $ cd client
+    $ npm install
+    ```
     
     
     
